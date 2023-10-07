@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           // primarySwatch: Colors.green,
         ),
         routes: Navigations.routes(),
-        initialRoute: Navigations.splashScreen,
+        initialRoute: Navigations.loginScreen,
         navigatorKey: Navigations.navigatorKey,
       ),
     );

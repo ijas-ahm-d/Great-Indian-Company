@@ -3,65 +3,46 @@ import 'package:great_gpt/utils/constants.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({
-    super.key,
-  });
-
-  @override
-  State<WebViewScreen> createState() => _WebViewScreenState();
-}
-
-class _WebViewScreenState extends State<WebViewScreen> {
-  int loadingPercentage = 0;
-  final controller = WebViewController();
+class WebViewScreen extends StatelessWidget {
+  const WebViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = WebViewController();
+
     return Scaffold(
       backgroundColor: AppColors.kblack,
       body: WillPopScope(
         child: SafeArea(
           child: WebViewWidget(
-              controller: controller
-          ..setJavaScriptMode(JavaScriptMode.unrestricted)
-          ..setBackgroundColor(
-            AppColors.kblack,
-          )
-          ..setNavigationDelegate(
-            NavigationDelegate(
-              onProgress: (progress) {
-                setState(() {
-                  loadingPercentage = progress;
-                });
-              },
-              onPageStarted: (url) {
-                setState(() {
-                  loadingPercentage = 0;
-                });
-              },
-              onPageFinished: (String url) {
-                loadingPercentage = 100;
-              },
-              onNavigationRequest: (NavigationRequest request) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const WebViewScreen(),
-                  ),
-                );
-                return NavigationDecision.prevent;
-              },
-            ),
-          )
-          ..loadRequest(
-            Uri.parse(Constants.url),
+            controller: controller
+              ..setJavaScriptMode(JavaScriptMode.unrestricted)
+              ..setBackgroundColor(
+                AppColors.kblack,
+              )
+              ..setNavigationDelegate(
+                NavigationDelegate(
+                  onProgress: (progress) {},
+                  onPageStarted: (url) {},
+                  onPageFinished: (String url) {},
+                  onWebResourceError: (WebResourceError error) {},
+                  onNavigationRequest: (NavigationRequest request) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WebViewScreen(),
+                      ),
+                    );
+                    return NavigationDecision.prevent;
+                  },
+                ),
+              )
+              ..loadRequest(
+                Uri.parse(Constants.url),
+              ),
           ),
-            ),
         ),
-        onWillPop: () {
-          return exitApp(context);
-        },
+        onWillPop: () => exitApp(context),
       ),
     );
   }

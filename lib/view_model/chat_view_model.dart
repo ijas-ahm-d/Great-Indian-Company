@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:great_gpt/models/chat_model.dart';
 import 'package:great_gpt/service/api_service.dart';
 
-class ChatViewModel extends ChangeNotifier{
-   List<ChatModel> chatList = [];
+class ChatViewModel extends ChangeNotifier {
+  List<ChatModel> chatList = [];
   List<ChatModel> get getChatList {
     return chatList;
   }
@@ -13,19 +13,8 @@ class ChatViewModel extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future<void> sendMessageAndGetAnswers(
-      {required String msg}) async {
-    // if (chosenModelId.toLowerCase().startsWith("gpt")) {
-      chatList.addAll(await ApiService.sendMessageGPT(
-        message: msg,
-       
-      ));
-    // } else {
-    //   chatList.addAll(await ApiService.sendMessage(
-    //     message: msg,
-      
-    //   ));
-    // }
+  Future<void> sendMessageAndGetAnswers({required String msg}) async {
+    chatList.addAll(await ApiService.sendMessageGPT(message: msg));
     notifyListeners();
   }
 }

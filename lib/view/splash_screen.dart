@@ -4,7 +4,6 @@ import 'package:great_gpt/utils/global_colors.dart';
 import 'package:great_gpt/utils/global_values.dart';
 import 'package:great_gpt/utils/text.dart';
 import 'package:great_gpt/view/auth/login_screen.dart';
-import 'package:great_gpt/view/gpt/home_screen.dart';
 import 'package:great_gpt/view/web_view/web_view_screen.dart';
 import 'package:great_gpt/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
@@ -36,9 +35,9 @@ class SplashScreen extends StatelessWidget {
       ),
       splashTransition: SplashTransition.fadeTransition,
       nextScreen:pro.isLoggedIn
-      ?const HomeScreen()
-      :const WebViewScreen()
-      // :const LoginScreen() ,
+      ?const WebViewScreen()
+      :const LoginScreen()
+      
     );
   }
 }

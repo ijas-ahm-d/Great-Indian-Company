@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:great_gpt/utils/global_values.dart';
@@ -119,10 +120,10 @@ class LoginScreen extends StatelessWidget {
 
               providerValue.isLoading
               ? const Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: AppColors.appColor,
-                ),
+                child:  SpinKitThreeBounce(
+              color: AppColors.appColor,
+              size: 18,
+            ),
               )
               :Padding(
                 padding: EdgeInsets.only(

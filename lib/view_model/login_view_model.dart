@@ -1,15 +1,9 @@
-// import 'dart:developer';
-
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:great_gpt/utils/global_keys.dart';
 import 'package:great_gpt/utils/global_snackbar.dart';
 import 'package:great_gpt/utils/routes/navigations.dart';
-// import 'package:great_gpt/view/auth/otp_screen.dart';
-// import 'package:great_gpt/view/auth/user_info_screen.dart';
-// import 'package:great_gpt/view/home/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginViewModel extends ChangeNotifier {
@@ -130,7 +124,7 @@ class LoginViewModel extends ChangeNotifier {
     // });
     clearController();
     Navigator.pushNamedAndRemoveUntil(
-        context, Navigations.homeScreen, (route) => false);
+        context, Navigations.webscreen, (route) => false);
   }
 
   setLoginStatus() async {

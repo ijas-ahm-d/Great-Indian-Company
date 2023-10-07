@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:great_gpt/utils/global_values.dart';
@@ -25,11 +26,11 @@ class OtpScreen extends StatelessWidget {
       body: SafeArea(
         child: isLoading
             ? const Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: AppColors.appColor,
-                ),
-              )
+              child:   SpinKitThreeBounce(
+                color: AppColors.appColor,
+                size: 18,
+              ),
+            )
             : Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Form(
