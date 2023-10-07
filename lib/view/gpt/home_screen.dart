@@ -68,12 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Flexible(
             child: ListView.builder(
               controller: _listScrollController,
-              itemCount: chatPro.getChatList.length,
+              itemCount: chatPro.getChatList.data?.length,
               itemBuilder: (context, index) {
                 return ChatWidget(
-                  msg: chatPro.getChatList[index].msg,
-                  chatIndex: chatPro.getChatList[index].chatIndex,
-                  shouldAnimate: chatPro.getChatList.length - 1 == index,
+                  msg: chatPro.getChatList.data![index].msg,
+                  chatIndex: chatPro.getChatList.data![index].chatIndex,
+                  shouldAnimate: chatPro.getChatList.data!.length - 1 == index,
                 );
               },
             ),
