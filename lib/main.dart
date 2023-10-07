@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:great_gpt/utils/colors.dart';
-import 'package:great_gpt/utils/constants.dart';
+import 'package:great_gpt/utils/constant.dart';
 import 'package:great_gpt/utils/providers/providers_list.dart';
 import 'package:great_gpt/utils/routes/navigations.dart';
 import 'package:provider/provider.dart';

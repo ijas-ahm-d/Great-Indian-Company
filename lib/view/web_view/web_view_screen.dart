@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:great_gpt/utils/constants.dart';
+import 'package:great_gpt/utils/constant.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

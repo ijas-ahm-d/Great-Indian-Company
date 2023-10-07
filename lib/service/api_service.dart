@@ -1,5 +1,5 @@
 import 'package:great_gpt/models/chat_model.dart';
-import 'package:great_gpt/utils/constants.dart';
+import 'package:great_gpt/utils/constant.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:developer';
