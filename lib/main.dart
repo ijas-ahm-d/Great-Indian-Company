@@ -20,7 +20,6 @@ void main() async {
   } else {
     await Firebase.initializeApp();
   }
-  // await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

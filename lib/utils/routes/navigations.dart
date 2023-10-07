@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:great_gpt/view/auth/login_screen.dart';
 import 'package:great_gpt/view/auth/otp_screen.dart';
-import 'package:great_gpt/view/home/home_screen.dart';
+import 'package:great_gpt/view/gpt/home_screen.dart';
 import 'package:great_gpt/view/splash_screen.dart';
 
 class Navigations {
