@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:great_gpt/utils/colors.dart';
 import 'package:great_gpt/utils/constants.dart';
 import 'package:great_gpt/utils/providers/providers_list.dart';

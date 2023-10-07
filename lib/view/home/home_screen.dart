@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:great_gpt/service/services.dart';
 import 'package:great_gpt/utils/colors.dart';
 import 'package:great_gpt/utils/global_colors.dart';
 import 'package:great_gpt/utils/global_snackbar.dart';
 import 'package:great_gpt/utils/global_values.dart';
 import 'package:great_gpt/view_model/chat_view_model.dart';
-import 'package:great_gpt/view_model/models_view_model.dart';
 import 'package:great_gpt/widgets/chat_widget.dart';
 import 'package:provider/provider.dart';
 
+// GPT Screen
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -40,7 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final modelsPro = Provider.of<ModelsViewModel>(context);
     final chatPro = Provider.of<ChatViewModel>(context);
     return Scaffold(
       // backgroundColor: AppColors.kblack,
@@ -48,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 2,
         backgroundColor: const Color.fromARGB(255, 65, 60, 60),
         title: const Text(
-          "Kautilya",
+          "GPT Section",
           style: TextStyle(
             color: AppColors.kwhite,
           ),
@@ -56,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () async {
-              await Services.showModalSheet(context: context);
             },
             icon: const Icon(Icons.autorenew),
             color: AppColors.spRed,
@@ -102,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         controller: _controller,
                         onSubmitted: (v) async {
                           await sendMessage(
-                              chatPro: chatPro, modelsPro: modelsPro);
+                              chatPro: chatPro, );
                         },
                         decoration: const InputDecoration.collapsed(
                           hintText: "How can i help you",
@@ -113,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     IconButton(
                       onPressed: () async {
                         await sendMessage(
-                            chatPro: chatPro, modelsPro: modelsPro);
+                            chatPro: chatPro);
                       },
                       icon: const Icon(
                         Icons.send,
@@ -139,8 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> sendMessage({
-    required ModelsViewModel modelsPro,
-    required ChatViewModel chatPro,
+ 
+    required ChatViewModel chatPro
   }) async {
     // if (_isTyping) {
     //   CommonSnackBAr.snackBar(
@@ -170,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       await chatPro.sendMessageAndGetAnswers(
         msg: msg,
-        chosenModelId: modelsPro.getCurrentModel,
+        
       );
       setState(() {});
     } catch (error) {
